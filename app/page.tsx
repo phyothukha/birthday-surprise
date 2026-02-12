@@ -78,7 +78,11 @@ export default function Home() {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const styles: any = {
   container: {
-    height: "100vh",
+    position: "fixed", // full screen fix
+    inset: 0, // top:0 left:0 right:0 bottom:0
+    width: "100%",
+    height: "100dvh", // mobile-safe fullscreen
+    padding: "20px",
     background: "linear-gradient(135deg, #ff9a9e, #fad0c4)",
     display: "flex",
     justifyContent: "center",
@@ -88,29 +92,36 @@ const styles: any = {
     textAlign: "center",
     overflow: "hidden",
   },
+
   title: {
-    fontSize: "42px",
+    fontSize: "clamp(26px, 5vw, 42px)", // responsive font
     fontWeight: 900,
   },
+
   button: {
     marginTop: "20px",
-    padding: "15px 30px",
-    fontSize: "18px",
+    padding: "clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px)",
+    fontSize: "clamp(14px, 2vw, 18px)", // responsive button text
     borderRadius: "30px",
     border: "none",
     cursor: "pointer",
     backgroundColor: "white",
     color: "#ff4b6e",
   },
+
   imageContainer: {
     display: "flex",
     gap: "15px",
     marginTop: "20px",
     justifyContent: "center",
+    width: "100%",
   },
+
   image: {
-    width: "150px",
-    objectFit: "contain",
+    width: "80%", // responsive image
+    maxWidth: "300px", // prevent too big on desktop
+    height: "auto",
     borderRadius: "15px",
+    objectFit: "cover",
   },
 };
